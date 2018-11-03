@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/stanislav/projects/financial/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/home/stanislav/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/f5a1b2a4bf2c7f21fa0d789846bbc70d/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "/home/stanislav/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/fc33bc63e2f13ab85241961e40c2902b/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        }
+    ]
+}
