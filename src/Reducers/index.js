@@ -1,7 +1,10 @@
 import {combineReducers} from 'redux';
 import { NavigationActions } from 'react-navigation';
 import { RootNavigator } from '../../navigator/AppNavigator';
-import AuthReducer from '../Reducers/AuthReducer';
+import AuthReducer from './AuthReducer';
+import GuestsReducer from './GuestsReducer';
+import ChecksReducer from './ChecksReducer';
+import NetSalesReducer from './NetSalesReducer';
 
 const firstAction = RootNavigator.router.getActionForPathAndParams('AuthLoading');
 const initialNavState = RootNavigator.router.getStateForAction(
@@ -70,5 +73,8 @@ function nav(state = initialNavState, action) {
 
 export default combineReducers({
     auth: AuthReducer,
+    checks: ChecksReducer,
+    netSales: NetSalesReducer,
+    guests: GuestsReducer,
     nav: nav,
 })

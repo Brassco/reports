@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TextInput, Dimensions,
     SafeAreaView, ScrollView, TouchableOpacity,
-    ActivityIndicator
+    ActivityIndicator, Image
 } from 'react-native';
 import {connect} from 'react-redux';
 import {changeName, changePassword, onLogin} from '../../Actions/AuthActions';
@@ -57,7 +57,7 @@ class Login extends React.Component {
         return (
             <View style={buttonContainer}>
                 <TouchableOpacity style={{
-                        backgroundColor: '#159',
+                        backgroundColor: '#368ee0',
                         width: 80,
                         height: 40,
                         justifyContent: 'center',
@@ -65,7 +65,9 @@ class Login extends React.Component {
                     }}
                     onPress={this.onLogin}
                 >
-                    <Text>
+                    <Text style={{
+                        color: '#eaf4f9'
+                    }}>
                         Log me in
                     </Text>
                 </TouchableOpacity>
@@ -86,9 +88,32 @@ class Login extends React.Component {
                             container,
                             logoContainer
                         ]}>
-                            <Text>
-                                LOGO
-                            </Text>
+                            <View style={{
+                                flex: 4,
+                                alignSelf: 'stretch',
+                                alignItems: 'center',
+                                justifyContent: 'flex-end'
+                            }}>
+                                <Image
+                                    style={{
+                                        width: width*0.3,
+                                        height: width*0.3,
+                                    }}
+                                    source={require('../../images/logo.png')}
+                                />
+                            </View>
+                            <View style={{
+                                flex: 1,
+                                alignSelf: 'stretch',
+                                alignItems: 'center'
+                            }}>
+                                <Text style={{
+                                    fontSize: 30 ,
+                                    color: '#fff'
+                                }}>
+                                    ADVANTEC POS
+                                </Text>
+                            </View>
                         </View>
                         <View style={[
                             container,
@@ -100,12 +125,12 @@ class Login extends React.Component {
                                 width: width*0.8,
                                 height: height*0.4,
                                 padding: 20,
-                                backgroundColor: '#f1f1f1'
+                                backgroundColor: '#fff'
                             }}>
                                 <View>
                                     <Text style={{
                                         fontSize: 25,
-                                        color: '#c5c5c5'
+                                        color: '#85757c'
                                     }}>
                                         LOGIN
                                     </Text>
@@ -158,10 +183,11 @@ const styles = {
         width: width,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#1a85d3'
+        backgroundColor: '#368ee0'
     },
     logoContainer: {
         height: height*0.4,
+        justifyContent: 'flex-end',
         // backgroundColor: '#559',
     },
     formContainer: {
@@ -176,7 +202,7 @@ const styles = {
         borderRadius: 2,
         paddingLeft: 20,
         borderColor: '#1f1f1f',
-        backgroundColor: '#f6f0af'
+        backgroundColor: '#faffbd'
     },
     inputWrapper: {
         width: '100%',

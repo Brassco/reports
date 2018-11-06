@@ -14,12 +14,10 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case AUTH_CHANGE_NAME:
-            console.log('AUTH_CHANGE_NAME', action.payload);
             return {...state,
                 error: false,
                 name: action.payload};
         case AUTH_CHANGE_PASS:
-            console.log('AUTH_CHANGE_PASS', action.payload);
             return {...state,
                 error: false,
                 password: action.payload};
