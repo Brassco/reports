@@ -10,8 +10,6 @@ let {width, height} = Dimensions.get('window');
 const ChartsComponent = (props) => {
     let {title, sum, xAxis, yAxis} = props;
 console.log(props);
-    const xData = ["7a", "", "", "", "2p", "", "", "", "7p"]
-    const data = [ 7, 20.25, 32.75, 5, 19.5, 23, 12.25, 7.25, 25.25]
 
     const axesSvg = { fontSize: 10, fill: 'grey' };
     const verticalContentInset = { top: 10, bottom: 10 }

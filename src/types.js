@@ -21,3 +21,7 @@ export const ON_GET_GUESTS_SUCCESS = 'on_get_guests_success';
 export const ON_GET_LABOR = 'on_get_labor';
 export const ON_GET_LABOR_FAIL = 'on_get_labor_fail';
 export const ON_GET_LABOR_SUCCESS = 'on_get_labor_success';
+
+export const ON_GET_TABLES = 'on_get_tables';
+export const ON_GET_TABLES_FAIL = 'on_get_tables_fail';
+export const ON_GET_TABLES_SUCCESS = 'on_get_tables_success';

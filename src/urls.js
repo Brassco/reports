@@ -4,3 +4,4 @@ export const NET_SALES_URL = BASE_URL+'reports/netsales';
 export const CHECKS_URL = BASE_URL+'reports/checks';
 export const GUESTS_URL = BASE_URL+'reports/guests';
 export const LABOR_URL = BASE_URL+'reports/labor';
+export const TABLES_URL = BASE_URL+'reports/tables';

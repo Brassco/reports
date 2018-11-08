@@ -1,10 +1,36 @@
 import React from 'react';
 import {View, Text, Dimensions, TouchableOpacity} from 'react-native';
+import TableRowOpen from './TableRowOpen';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 let {width, height} = Dimensions.get('window');
 
 
 class TableRowComponent extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpen: false
+        }
+    }
+
+    renderRows() {
+        console.log('renderRows', this.props);
+        if( this.state.isOpen) {
+            return (this.props.data.map( (row, index) => {
+                return (
+                    <TableRowOpen
+                        key={this.props.name+index+row.Ticket}
+                        data={row}
+                        type={this.props.name}
+                        openModal={this.props.openModal}
+                    />
+                )
+            }))
+        }
+    }
+
     render() {
 
         let {amount, qty, name} = this.props;
@@ -54,24 +80,27 @@ class TableRowComponent extends React.Component{
                             justifyContent: 'flex-end',
                             alignItems: 'center',
                         }}
-                        // onPress={this.setState({
-                        //     isOpen: true
-                        // })}
+                        onPress={() => this.setState({
+                                isOpen: !this.state.isOpen
+                            })
+                        }
                     >
                         <Text>
                             {amount}
                         </Text>
-                        <Text>
-                            +
+                        <Text style={{margin: 10, fontSize: 13, textAlign: 'left'}}>
+                            <FontAwesome>{Icons.caretDown}</FontAwesome>
                         </Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{
                     alignSelf: 'stretch',
                     backgroundColor: '#fff',
-                    height: 50,
+                    height: this.state.isOpen ? this.props.data.length*55 : 0,
                 }}>
-
+                    {
+                        this.renderRows()
+                    }
                 </View>
             </View>
         )
