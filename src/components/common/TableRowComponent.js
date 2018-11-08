@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Dimensions, TouchableOpacity} from 'react-native';
 import TableRowOpen from './TableRowOpen';
+import TableHeaderOpen from './TableHeaderOpen';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 let {width, height} = Dimensions.get('window');
@@ -12,6 +13,23 @@ class TableRowComponent extends React.Component{
         super(props);
         this.state = {
             isOpen: false
+        }
+    }
+
+    renderOpenTable() {
+        if( this.state.isOpen) {
+            return (
+                <View style={{
+                    alignSelf: 'stretch',
+                    backgroundColor: '#fff',
+                    height: this.state.isOpen ? (this.props.data.length + 1)* 55 : 0,
+                }}>
+                    <TableHeaderOpen />
+                    {
+                        this.renderRows()
+                    }
+                </View>
+            )
         }
     }
 
@@ -93,15 +111,11 @@ class TableRowComponent extends React.Component{
                         </Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{
-                    alignSelf: 'stretch',
-                    backgroundColor: '#fff',
-                    height: this.state.isOpen ? this.props.data.length*55 : 0,
-                }}>
+
                     {
-                        this.renderRows()
+                        this.renderOpenTable()
                     }
-                </View>
+
             </View>
         )
     }

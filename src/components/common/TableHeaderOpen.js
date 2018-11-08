@@ -5,7 +5,7 @@ import FontAwesome, { Icons } from 'react-native-fontawesome';
 let {width, height} = Dimensions.get('window');
 
 
-const TableRowOpen = (props) => {
+const TableHeaderOpen = (props) => {
 
     let {data, openModal, type} = props;
     return (
@@ -15,7 +15,7 @@ const TableRowOpen = (props) => {
             backgroundColor: '#fff',
             margin: 1,
             marginLeft: 10,
-            // marginRight: 10,
+            marginRight: 10,
             justifyContent: 'center',
         }}>
             <View style={{
@@ -32,46 +32,41 @@ const TableRowOpen = (props) => {
                     alignItems: 'flex-start',
                 }}>
                     <Text>
-                        {data.Name}
+                        Name
                     </Text>
                 </View>
                 <View style={{
                     flex: 2,
                     justifyContent: 'center',
-                    alignItems: 'center',
+                    alignItems: 'flex-start',
                 }}>
                     <Text>
-                        {data.Amount}
+                        Amount
                     </Text>
                 </View>
-                <View
+                <TouchableOpacity
                     style={{
                         flex: 2,
                         flexDirection: 'row',
-                        justifyContent: 'center',
+                        justifyContent: 'flex-end',
                         alignItems: 'center',
                     }}
-                >
-                    <Text style={{
-                        fontSize: 13
-                    }}>
-                        {data.Time}
-                    </Text>
-                </View>
-                <TouchableOpacity style={{
-                    flex: 1,
-                    justifyContent: 'center',
-                    alignItems: 'flex-start',
-                }}
                     onPress={() => openModal(data, type)}
                 >
-                    <Text style={{margin: 2, fontSize: 15, textAlign: 'left'}}>
-                        <FontAwesome>{Icons.search}</FontAwesome>
+                    <Text>
+                        Time
                     </Text>
                 </TouchableOpacity>
+                <View style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}>
+
+                </View>
             </View>
         </View>
     )
 }
 
-export default TableRowOpen;
+export default TableHeaderOpen;

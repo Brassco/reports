@@ -13,10 +13,10 @@ class ProgressCircleComponent extends React.Component {
     }
 
     render() {
-        let {progress} = this.props;
+        let {labor} = this.props;
         const MAX_PERCENT_VALUE = 60;
-        let value = (progress/(MAX_PERCENT_VALUE/ 100))
-        console.log(value/10, (MAX_PERCENT_VALUE/ 100), progress);
+        let value = (labor/(MAX_PERCENT_VALUE/ 100))
+
         return (
             <View style={{
                 alignSelf: 'stretch',
@@ -73,7 +73,7 @@ class ProgressCircleComponent extends React.Component {
                                 <Text style={{
                                     fontSize: 40
                                 }}>
-                                    {this.props.progress}
+                                    {labor}
                                 </Text>
                             </View>
                         </View>
