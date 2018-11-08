@@ -5,6 +5,8 @@ import AuthReducer from './AuthReducer';
 import GuestsReducer from './GuestsReducer';
 import ChecksReducer from './ChecksReducer';
 import NetSalesReducer from './NetSalesReducer';
+import TablesReducer from './TablesReducer';
+import LaborReducer from './LaborReducer';
 
 const firstAction = RootNavigator.router.getActionForPathAndParams('AuthLoading');
 const initialNavState = RootNavigator.router.getStateForAction(
@@ -76,5 +78,7 @@ export default combineReducers({
     checks: ChecksReducer,
     netSales: NetSalesReducer,
     guests: GuestsReducer,
+    tables: TablesReducer,
+    labor: LaborReducer,
     nav: nav,
 })

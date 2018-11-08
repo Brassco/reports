@@ -1,36 +1,36 @@
 import {
-    ON_GET_GUESTS,
-    ON_GET_GUESTS_SUCCESS,
-    ON_GET_GUESTS_FAIL,
+    ON_GET_TABLES,
+    ON_GET_TABLES_SUCCESS,
+    ON_GET_TABLES_FAIL,
 } from '../types'
 
 const INITIAL_STATE = {
-    guests: null,
+    tables: [],
     error: false,
     loading: true,
 }
 export default (state = INITIAL_STATE, action) => {
     switch(action.type) {
-        case ON_GET_GUESTS:
+        case ON_GET_TABLES:
             return {
                 ...state,
                 loading: true,
                 error: false,
-                guests: null
+                tables: null
             };
-        case ON_GET_GUESTS_SUCCESS:
-console.log('ON_GET_GUESTS_SUCCESS', action.payload)
+        case ON_GET_TABLES_SUCCESS:
+console.log('ON_GET_TABLES_SUCCESS', action.payload)
             return {
                 ...state,
                 error: false,
                 loading: false,
-                guests: action.payload
+                tables: action.payload
             };
-        case ON_GET_GUESTS_FAIL:
+        case ON_GET_TABLES_FAIL:
             return {
                 ...state,
                 error: action.payload,
-                guests: null
+                tables: null
             };
         default: return state;
     }

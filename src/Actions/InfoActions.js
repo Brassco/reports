@@ -10,10 +10,14 @@ import {
     ON_GET_GUESTS_SUCCESS,
     ON_GET_LABOR,
     ON_GET_LABOR_SUCCESS,
+    ON_GET_TABLES,
+    ON_GET_TABLES_SUCCESS,
 } from '../types'
 
-import {NET_SALES_URL, CHECKS_URL, GUESTS_URL, LABOR_URL} from '../urls';
+import {NET_SALES_URL, CHECKS_URL, GUESTS_URL, LABOR_URL, TABLES_URL} from '../urls';
 import axios from 'axios';
+
+import {tables} from '../tables';
 
 export const getNetSales = (token) => {
 console.log('getNetSales', token)
@@ -96,17 +100,53 @@ export const getChecks = (token) => {
             type: ON_GET_CHECKS
         })
 
-        // dispatch({
-        //     type: ON_GET_CHECKS_SUCCESS,
-        //     payload: {
-        //         "title": "",
-        //         "xAxis": [],
-        //         "yAxis": [
-        //             [],
-        //             []
-        //         ]
-        //     }
-        // })
+        /*dispatch({
+            type: ON_GET_CHECKS_SUCCESS,
+            payload: {
+                "title": "120",
+                "xAxis": [
+                    "11a",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "4p",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "9p"
+                ],
+                "yAxis": [
+                    [
+                        8,
+                        24,
+                        22,
+                        7,
+                        5,
+                        7,
+                        10,
+                        15,
+                        9,
+                        8,
+                        5
+                    ],
+                    [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                ]
+            }
+        })*/
         let tokenString = 'Bearer ' + token;
         axios.get(CHECKS_URL, {
                 headers: {
@@ -134,18 +174,54 @@ export const getGuests = (token) => {
         dispatch({
             type: ON_GET_GUESTS
         })
-// console.log('getGuests');
-//             dispatch({
-//                 type: ON_GET_GUESTS_SUCCESS,
-//                 payload:  {
-//                     "title": "",
-//                     "xAxis": [],
-//                     "yAxis": [
-//                     [],
-//                     []
-//                 ]
-//             }
-//         })
+console.log('getGuests');
+            /*dispatch({
+                type: ON_GET_GUESTS_SUCCESS,
+                payload: {
+                    "title": "248",
+                    "xAxis": [
+                        "11a",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "4p",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "9p"
+                    ],
+                    "yAxis": [
+                        [
+                            17,
+                            49,
+                            47,
+                            9,
+                            13,
+                            16,
+                            20,
+                            41,
+                            19,
+                            16,
+                            1
+                        ],
+                        [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    ]
+                }
+        })*/
 
         let tokenString = 'Bearer ' + token;
         axios.get(GUESTS_URL, {
@@ -177,15 +253,8 @@ export const getLabor = (token) => {
         })
 
         // dispatch({
-        //     type: ON_GET_CHECKS_SUCCESS,
-        //     payload: {
-        //         "title": "",
-        //         "xAxis": [],
-        //         "yAxis": [
-        //             [],
-        //             []
-        //         ]
-        //     }
+        //     type: ON_GET_LABOR_SUCCESS,
+        //     payload: 36.43
         // })
         let tokenString = 'Bearer ' + token;
         axios.get(LABOR_URL, {
@@ -199,6 +268,40 @@ export const getLabor = (token) => {
                 dispatch({
                     type: ON_GET_LABOR_SUCCESS,
                     payload: checks.data
+                })
+            })
+            .catch(
+                err => {
+                    console.log(err);
+                }
+            )
+    }
+}
+
+export const getTables = (token) => {
+
+    return (dispatch) => {
+        dispatch({
+            type: ON_GET_TABLES
+        })
+
+console.log('getTables', token);
+        // dispatch({
+        //     type: ON_GET_TABLES_SUCCESS,
+        //     payload: tables
+        // })
+        let tokenString = 'Bearer ' + token;
+        axios.get(TABLES_URL, {
+                headers: {
+                    'Authorization': tokenString
+                }
+            }
+        )
+            .then(tables => {
+                console.log(tables)
+                dispatch({
+                    type: ON_GET_TABLES_SUCCESS,
+                    payload: tables.data
                 })
             })
             .catch(
