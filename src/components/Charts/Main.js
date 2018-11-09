@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Dimensions, ScrollView, TouchableOpacity} from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import ModalTicket from '../common/ModalTicket';
+import ModalOpenTableTicket from '../common/ModalOpenTableTicket';
 import ProgressCircleComponent from '../common/ProgressCircle';
 import Modal from 'react-native-modalbox';
 import {connect} from 'react-redux';
@@ -25,7 +26,6 @@ class Main extends React.Component {
     }
 
     onOpenModal(data, type) {
-        console.log('open modal data - ', data, type)
         this.setState({
             isOpen: true,
             modalData: data,
@@ -34,8 +34,6 @@ class Main extends React.Component {
     }
 
     renderModalContent() {
-console.log('renderModalContent', this.state.modalData, this.state.modalType);
-
         if( this.state.modalData) {
 
             let {modalData} = this.state;
@@ -47,7 +45,7 @@ console.log('renderModalContent', this.state.modalData, this.state.modalType);
                 )
             } else {
                 return (
-                    <ModalTicket
+                    <ModalOpenTableTicket
                         modalData={modalData}
                     />
                 )
@@ -82,11 +80,10 @@ console.log('renderModalContent', this.state.modalData, this.state.modalType);
                 <Modal
                     style={{
                         // flex: 1,
-                        justifyContent: 'center',
+                        justifyContent: 'flex-start',
                         alignItems: 'center',
-
-                        height: height*0.5,
-                        maxHeight: 400,
+                        height: height*0.8,
+                        maxHeight: 450,
                         width: width*0.8,
                         maxWidth: 400,
                         backgroundColor: "#fff"
@@ -106,7 +103,6 @@ console.log('renderModalContent', this.state.modalData, this.state.modalType);
                         <TouchableOpacity
                             onPress={() => this.setState({isOpen: !this.state.isOpen})}
                             style={{
-                                // backgroundColor: '#159',
                                 width: 50,
                                 height: 40,
                             }}>
@@ -118,7 +114,7 @@ console.log('renderModalContent', this.state.modalData, this.state.modalType);
                             </Text>
                         </TouchableOpacity>
                     </View>
-                    <View>
+                    <View style={{ flex: 1}}>
                         {
                             this.renderModalContent()
                         }

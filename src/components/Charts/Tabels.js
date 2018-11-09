@@ -12,15 +12,16 @@ console.log('Tables componentDidMount');
         this.props.getTables(this.props.token)
     }
 
-    renderTable(data) {
-        console.log('render table', this.props)
-        return (
-            <TableRowComponent
-                name={'Comps'}
-                qty={25}
-                amount={125}
-            />
-        )
+    countTableAmount(tables) {
+        let sum = 0;
+        console.log(tables);
+        for (let index in tables ) {
+            let amount = tables[index].Amount || tables[index].AmountSum;
+            console.log(tables[index].Amount);
+            sum += parseFloat(amount);
+        }
+        console.log(sum);
+        return sum;
     }
 
     renderContent() {
@@ -31,35 +32,35 @@ console.log('Tables componentDidMount');
                     <TableRowComponent
                         name={'Comps'}
                         qty={this.props.tables['Comps'].length}
-                        amount={125}
+                        amount={this.countTableAmount(this.props.tables['Comps'])}
                         data={this.props.tables['Comps']}
                         openModal={this.props.openModal}
                     />
                     <TableRowComponent
                         name={'Discounts'}
                         qty={this.props.tables['Discounts'].length}
-                        amount={125}
+                        amount={this.countTableAmount(this.props.tables['Discounts'])}
                         data={this.props.tables['Discounts']}
                         openModal={this.props.openModal}
                     />
                     <TableRowComponent
                         name={'Voids'}
                         qty={this.props.tables['Voids'].length}
-                        amount={125}
+                        amount={this.countTableAmount(this.props.tables['Voids'])}
                         data={this.props.tables['Voids']}
                         openModal={this.props.openModal}
                     />
                     <TableRowComponent
                         name={'Cancellations'}
                         qty={this.props.tables['Cancellations'].length}
-                        amount={125}
+                        amount={this.countTableAmount(this.props.tables['Cancellations'])}
                         data={this.props.tables['Cancellations']}
                         openModal={this.props.openModal}
                     />
                     <TableRowComponent
                         name={'OpenTable'}
                         qty={this.props.tables['OpenTable'].length}
-                        amount={125}
+                        amount={this.countTableAmount(this.props.tables['OpenTable'])}
                         data={this.props.tables['OpenTable']}
                         openModal={this.props.openModal}
                     />

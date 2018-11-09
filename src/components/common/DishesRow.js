@@ -1,43 +1,25 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const TaxDetailRow = () => {
+const DishesRow = (props) => {
 
     return (
         <View style={{
             flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center'
         }}>
-            <View style={{flex:1}}>
-                <Text>
-                    Tax 9.5%
-                </Text>
-            </View>
-            <View style={{flex:1}}>
-                <Text>
-                    Sub total
-                </Text>
-                <Text>
-                    29.5
-                </Text>
-            </View>
-            <View style={{flex:1}}>
-                <Text>
-                    Tax
-                </Text>
-                <Text>
-                    9.5
-                </Text>
-            </View>
-            <View style={{flex:1}}>
-                <Text>
-                    Total
-                </Text>
-                <Text>
-                    38.2
-                </Text>
-            </View>
+            <Text>
+                {props.data.qty}
+            </Text>
+            <Text>
+                {props.data.name}
+            </Text>
+            <Text>
+                {props.data.amount}
+            </Text>
         </View>
     )
 }
 
-export default TaxDetailRow;
+export default DishesRow;

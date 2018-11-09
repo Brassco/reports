@@ -14,7 +14,7 @@ const TableRowOpen = (props) => {
             alignSelf: 'stretch',
             backgroundColor: '#fff',
             margin: 1,
-            marginLeft: 10,
+            // marginLeft: 10,
             // marginRight: 10,
             justifyContent: 'center',
         }}>
@@ -37,8 +37,10 @@ const TableRowOpen = (props) => {
                 </View>
                 <View style={{
                     flex: 2,
+                    // backgroundColor: "#729",
                     justifyContent: 'center',
-                    alignItems: 'center',
+                    alignItems: 'flex-start',
+                    paddingLeft: 2
                 }}>
                     <Text>
                         {data.Amount}

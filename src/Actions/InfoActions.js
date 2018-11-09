@@ -263,11 +263,11 @@ export const getLabor = (token) => {
                 }
             }
         )
-            .then(checks => {
-                console.log(checks)
+            .then(labor => {
+console.log('Labor response', labor)
                 dispatch({
                     type: ON_GET_LABOR_SUCCESS,
-                    payload: checks.data
+                    payload: labor.data
                 })
             })
             .catch(

@@ -6,7 +6,11 @@ const ModalTicket = (props) => {
 
     let {modalData} = props;
     return (
-        <View>
+        <View style={{
+                flex: 1,
+                padding: 5,
+                justifyContent: 'space-between'
+        }}>
             <ModalTiketRow
                 name={'Name'}
                 value={modalData.Name}

@@ -14,34 +14,39 @@ const TableHeaderOpen = (props) => {
             alignSelf: 'stretch',
             backgroundColor: '#fff',
             margin: 1,
-            marginLeft: 10,
-            marginRight: 10,
+            // marginLeft: 10,
+            // marginRight: 10,
             justifyContent: 'center',
         }}>
             <View style={{
                 height: 50,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                alignItems: 'center',
+                alignItems: 'flex-start',
+                paddingTop: 8,
                 borderBottomWidth: 1,
                 borderBottomColor: '#f1f1f1',
             }}>
                 <View style={{
                     flex: 4,
-                    justifyContent: 'center',
+                    // backgroundColor: '#729',
+                    justifyContent: 'flex-start',
                     alignItems: 'flex-start',
                 }}>
                     <Text>
-                        Name
+                        Table
                     </Text>
                 </View>
                 <View style={{
                     flex: 2,
-                    justifyContent: 'center',
+                    justifyContent: 'flex-start',
                     alignItems: 'flex-start',
                 }}>
                     <Text>
                         Amount
+                    </Text>
+                    <Text>
+                        ($)
                     </Text>
                 </View>
                 <TouchableOpacity

@@ -6,9 +6,8 @@ let {width, height} = Dimensions.get('window');
 const ModalTiketRow = (props) => {
     return (
         <View style={{
-            width: width*0.75,
+            width: width*0.7,
             maxWidth: 380,
-            // height: 30,
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'flex-end',

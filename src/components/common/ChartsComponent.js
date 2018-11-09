@@ -41,13 +41,13 @@ console.log(props);
                     {sum}
                 </Text>
             </View>
-            <View style={{ height: 150, padding: 20, flexDirection: 'row' }}>
-                <View style={{ flex: 1, marginLeft: 10 }}>
+            <View style={{ height: 150, padding: 10, flexDirection: 'row' }}>
+                <View style={{ flex: 1}}>
                     <LineChart
                         style={{ flex: 1 }}
                         data={yAxis[0]}
                         contentInset={verticalContentInset}
-                        svg={{ stroke: 'rgb(134, 65, 244)' }}
+                        svg={{ stroke: '#2199d8' }}
                     >
 
                     </LineChart>
