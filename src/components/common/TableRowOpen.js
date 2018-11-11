@@ -32,7 +32,7 @@ const TableRowOpen = (props) => {
                     alignItems: 'flex-start',
                 }}>
                     <Text>
-                        {data.Name}
+                        {data.Table}
                     </Text>
                 </View>
                 <View style={{

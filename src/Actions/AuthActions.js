@@ -52,7 +52,7 @@ export const onLogin = (name, password, onSuccesCallback) => {
         //         "tokenType": "bearer"
         //     },
         //     onSuccesCallback)
-
+console.log(LOGIN_URL, JSON.stringify(body))
         axios.post(LOGIN_URL, JSON.stringify(body), {
                 headers: {
                     'Content-Type': 'application/json',

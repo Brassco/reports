@@ -160,6 +160,7 @@ class Login extends React.Component {
                                     <TextInput
                                         style={textInputStyle}
                                         placeholder={'Password'}
+                                        secureTextEntry={true}
                                         onChangeText={this.onChangePassword}
                                         value={this.props.password}
                                     />

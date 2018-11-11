@@ -26,6 +26,7 @@ class Main extends React.Component {
     }
 
     onOpenModal(data, type) {
+console.log('onOpenModal', data, type, this.state);
         this.setState({
             isOpen: true,
             modalData: data,
@@ -54,9 +55,10 @@ class Main extends React.Component {
     }
 
     render() {
+        console.log('render main screen with width ', width);
         return (
             <View style={{
-                width: width,
+                width: '100%',
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: 10,
@@ -64,7 +66,7 @@ class Main extends React.Component {
             }}>
                 <ScrollView style={{
                     padding: 10,
-                    width: width,
+                    width: '100%',
                 }}>
                     <NetSales />
                     <Checks />
@@ -90,6 +92,7 @@ class Main extends React.Component {
                     }}
                     ref={"modal1"}
                     swipeToClose={false}
+                    backdropPressToClose={false}
                     isOpen={this.state.isOpen}
                     onClosed={() => console.log(this.state.isOpen)}
                 >

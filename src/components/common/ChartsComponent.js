@@ -20,7 +20,7 @@ console.log(props);
             alignSelf: 'stretch',
             backgroundColor: '#fff',
             height: height*0.3,
-            maxHeight: 300,
+            // maxHeight: 300,
             borderRadius: 8,
             margin: 10
         }}>

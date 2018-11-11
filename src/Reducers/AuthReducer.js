@@ -5,8 +5,8 @@ import {
 } from '../types'
 
 const INITIAL_STATE = {
-    name: 'Via alloro test',
-    password: 'Via alloro test',
+    name: '',
+    password: '',
     user: null,
     error: false,
     loading: false,
