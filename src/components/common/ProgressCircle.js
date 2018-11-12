@@ -8,11 +8,26 @@ let {width, height} = Dimensions.get('window');
 
 class ProgressCircleComponent extends React.Component {
 
+    getCirculeColor(progress) {
+        if (progress<=1 && progress > 0.66) {
+            return '#e63a3a'
+        }
+        if (progress<=0.66 && progress > 0.5) {
+                return '#f8a31f'
+        }
+        if (progress<=0.5 && progress > 0.33) {
+            return '#FFBF00'
+        }
+        if (progress<=0.33 && progress > 0) {
+            return '#55BF3B'
+        }
+    }
+
     render() {
         let {labor} = this.props;
         const MAX_PERCENT_VALUE = 60;
         let value = (labor/(MAX_PERCENT_VALUE/ 100))
-
+console.log(value);
         return (
             <View style={{
                 alignSelf: 'stretch',
@@ -39,7 +54,7 @@ class ProgressCircleComponent extends React.Component {
                         maxHeight: 300,
                     }}
                     progress={value*0.01}
-                    progressColor={'#137a19'}
+                    progressColor={this.getCirculeColor(value*0.01)}
                 >
                     <View style={{
                         height: 50,
