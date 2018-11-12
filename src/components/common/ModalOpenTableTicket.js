@@ -22,6 +22,7 @@ class ModalTicket extends React.Component{
     render() {
         let {modalData} = this.props;
         let {titleText, container, titleContainer} = styles;
+        let addressStr = modalData.Address.split('<br>');
         return (
             <View style={container}>
                 <View style={titleContainer}>
@@ -29,7 +30,10 @@ class ModalTicket extends React.Component{
                         {modalData.Name}
                     </Text>
                     <Text>
-                        {modalData.Address}
+                        {addressStr[0]}
+                    </Text>
+                    <Text>
+                        {addressStr[1]}
                     </Text>
                 </View>
                 <View style={{
@@ -117,15 +121,18 @@ const styles = {
     },
     container: {
         flex: 1,
+        // width: '100%',
         padding: 5,
         paddingLeft: 15,
         paddingRight: 15,
         // backgroundColor: '#729',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
+        alignSelf: 'stretch'
     },
     titleContainer: {
         // height: 50,
+        alignSelf: 'stretch',
         // backgroundColor: '#729',
         justifyContent: 'flex-start',
         alignItems: 'center',

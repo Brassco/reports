@@ -103,7 +103,7 @@ class Main extends React.Component {
                 <Modal
                     style={{
                         justifyContent: 'flex-start',
-                        alignItems: 'center',
+                        alignItems: 'stretch',
                         height: height*0.8,
                         maxHeight: 450,
                         width: width*0.8,
