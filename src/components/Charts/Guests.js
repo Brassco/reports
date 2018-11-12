@@ -6,11 +6,6 @@ import ChartsComponent from '../common/ChartsComponent';
 
 class Guests extends React.Component {
 
-    componentDidMount() {
-console.log('Guests componentDidMount');
-        this.props.getGuests(this.props.token)
-    }
-
     renderContent() {
 
         let {loading, guests} = this.props;

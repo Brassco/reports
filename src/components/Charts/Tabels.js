@@ -7,10 +7,10 @@ import {getTables} from '../../Actions/InfoActions';
 
 class Tables extends React.Component {
 
-    componentDidMount() {
-console.log('Tables componentDidMount');
-        this.props.getTables(this.props.token)
-    }
+//     componentDidMount() {
+// console.log('Tables componentDidMount');
+//         this.props.getTables(this.props.token)
+//     }
 
     countTableAmount(tables) {
         let sum = 0;

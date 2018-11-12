@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, Dimensions, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, Dimensions, ScrollView,
+    TouchableOpacity, RefreshControl} from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 import ModalTicket from '../common/ModalTicket';
 import ModalOpenTableTicket from '../common/ModalOpenTableTicket';
@@ -10,6 +11,7 @@ import NetSales from './NetSales';
 import Checks from './Checks';
 import Guests from './Guests';
 import Tables from "./Tabels";
+import {getData} from '../../Actions/InfoActions';
 
 let {width, height} = Dimensions.get('window');
 
@@ -23,10 +25,20 @@ class Main extends React.Component {
             modalType: null
         }
         this.onOpenModal = this.onOpenModal.bind(this);
+        this.getData = this.getData.bind(this);
+    }
+
+    componentDidMount() {
+        this.getData();
+    }
+
+    getData() {
+        console.log('getDATA', this.props);
+        let {token} = this.props;
+        this.props.getData(token)
     }
 
     onOpenModal(data, type) {
-console.log('onOpenModal', data, type, this.state);
         this.setState({
             isOpen: true,
             modalData: data,
@@ -55,7 +67,6 @@ console.log('onOpenModal', data, type, this.state);
     }
 
     render() {
-        console.log('render main screen with width ', width);
         return (
             <View style={{
                 width: '100%',
@@ -64,24 +75,34 @@ console.log('onOpenModal', data, type, this.state);
                 padding: 10,
                 backgroundColor: '#dcdcdc'
             }}>
-                <ScrollView style={{
-                    padding: 10,
-                    width: '100%',
-                }}>
-                    <NetSales />
-                    <Checks />
-                    <Guests />
+                <ScrollView
+                    style={{
+                        padding: 10,
+                        width: '100%',
+                    }}
+                    bounces={true}
+                    horizontal={false}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={false}
+                            // onRefresh={() => console.log('on refresh')}
+                            onRefresh={this.getData}
+                        />
+                    }
+                >
+                        <NetSales />
+                        <Checks />
+                        <Guests />
 
-                    <ProgressCircleComponent
-                        progress={6.8}
-                    />
-                    <Tables
-                        openModal={this.onOpenModal}
-                    />
+                        <ProgressCircleComponent
+                            progress={6.8}
+                        />
+                        <Tables
+                            openModal={this.onOpenModal}
+                        />
                 </ScrollView>
                 <Modal
                     style={{
-                        // flex: 1,
                         justifyContent: 'flex-start',
                         alignItems: 'center',
                         height: height*0.8,
@@ -135,4 +156,4 @@ console.log(auth);
     }
 }
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps, {getData})(Main);

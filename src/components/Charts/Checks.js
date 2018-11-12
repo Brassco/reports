@@ -6,10 +6,6 @@ import ChartsComponent from '../common/ChartsComponent';
 
 class Checks extends React.Component {
 
-    componentDidMount() {
-        this.props.getChecks(this.props.token)
-    }
-
     renderContent() {
 
         let {loading, checks} = this.props;

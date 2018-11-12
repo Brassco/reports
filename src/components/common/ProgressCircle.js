@@ -8,10 +8,6 @@ let {width, height} = Dimensions.get('window');
 
 class ProgressCircleComponent extends React.Component {
 
-    componentDidMount() {
-        this.props.getLabor(this.props.token);
-    }
-
     render() {
         let {labor} = this.props;
         const MAX_PERCENT_VALUE = 60;

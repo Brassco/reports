@@ -6,10 +6,6 @@ import ChartsComponent from '../common/ChartsComponent';
 
 class NetSales extends React.Component {
 
-    componentDidMount() {
-        this.props.getNetSales(this.props.token)
-    }
-
     renderContent() {
         let {loading, netSales} = this.props;
 console.log('***Render NetSales***', loading, netSales);
