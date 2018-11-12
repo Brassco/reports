@@ -19,7 +19,6 @@ export default (state = INITIAL_STATE, action) => {
                 tables: null
             };
         case ON_GET_TABLES_SUCCESS:
-console.log('ON_GET_TABLES_SUCCESS', action.payload)
             return {
                 ...state,
                 error: false,

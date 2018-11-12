@@ -7,9 +7,7 @@ class ModalTicket extends React.Component{
 
 
     renderDishes() {
-        console.log('renderDishes', this.props.modalData.Dishes);
         return this.props.modalData.Dishes.map( dishes => {
-            console.log(dishes);
             return (
                 <DishesRow
                     key={dishes.name}

@@ -5,6 +5,7 @@ import FontAwesome, { Icons } from 'react-native-fontawesome';
 import ModalTicket from '../common/ModalTicket';
 import ModalOpenTableTicket from '../common/ModalOpenTableTicket';
 import ProgressCircleComponent from '../common/ProgressCircle';
+import Header from '../common/Header';
 import Modal from 'react-native-modalbox';
 import {connect} from 'react-redux';
 import NetSales from './NetSales';
@@ -17,6 +18,10 @@ let {width, height} = Dimensions.get('window');
 
 class Main extends React.Component {
 
+    static navigationOptions = {
+        header: null,
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -24,8 +29,10 @@ class Main extends React.Component {
             modalData: false,
             modalType: null
         }
+        this.scroll = null;
         this.onOpenModal = this.onOpenModal.bind(this);
         this.getData = this.getData.bind(this);
+        this.onOpenTable = this.onOpenTable.bind(this);
     }
 
     componentDidMount() {
@@ -33,7 +40,6 @@ class Main extends React.Component {
     }
 
     getData() {
-        console.log('getDATA', this.props);
         let {token} = this.props;
         this.props.getData(token)
     }
@@ -66,93 +72,108 @@ class Main extends React.Component {
         }
     }
 
-    render() {
-        return (
-            <View style={{
-                width: '100%',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: 10,
-                backgroundColor: '#dcdcdc'
-            }}>
-                <ScrollView
-                    style={{
-                        width: '100%',
-                    }}
-                    bounces={true}
-                    horizontal={false}
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={false}
-                            // onRefresh={() => console.log('on refresh')}
-                            onRefresh={this.getData}
-                        />
-                    }
-                >
-                        <NetSales />
-                        <Checks />
-                        <Guests />
+    onOpenTable() {
+        console.log('onOpenTable');
+        this.scroll.scrollToEnd(); // will scroll to the top at y-position 0
+    }
 
-                        <ProgressCircleComponent
-                            progress={6.8}
-                        />
-                        <Tables
-                            openModal={this.onOpenModal}
-                        />
-                </ScrollView>
-                <Modal
-                    style={{
-                        justifyContent: 'flex-start',
-                        alignItems: 'stretch',
-                        height: height*0.8,
-                        maxHeight: 450,
-                        width: width*0.8,
-                        maxWidth: 400,
-                        backgroundColor: "#fff"
-                    }}
-                    backdropOpacity={0.75}
-                    ref={"modal1"}
-                    swipeToClose={false}
-                    backdropPressToClose={false}
-                    isOpen={this.state.isOpen}
-                    onClosed={() => console.log(this.state.isOpen)}
-                >
-                    <View style={{
-                        height: 40,
-                        width: width*0.8,
-                        maxWidth: 400,
-                        justifyContent: 'flex-start',
-                        alignItems: 'flex-end'
-                    }}>
-                        <TouchableOpacity
-                            onPress={() => this.setState({isOpen: !this.state.isOpen})}
-                            style={{
-                                width: 50,
-                                height: 40,
-                            }}>
-                            <Text style={{
-                                margin: 5,
-                                fontSize: 35,
-                                textAlign: 'center'}}>
-                                <FontAwesome>{Icons.close}</FontAwesome>
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{ flex: 1}}>
-                        {
-                            this.renderModalContent()
+    render() {
+        let {navigation, name} = this.props;
+        return (
+            <View style={{flex: 1}}>
+                <Header
+                    navigation={navigation}
+                    title={name}
+                />
+                <View style={{
+                    width: '100%',
+                    height: height-70,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: 10,
+                    backgroundColor: '#EDEDED'
+                }}>
+                    <ScrollView
+                        ref={(scroll) => {this.scroll = scroll;}}
+                        style={{
+                            width: '100%',
+                        }}
+                        bounces={true}
+                        horizontal={false}
+                        refreshControl={
+                            <RefreshControl
+                                refreshing={false}
+                                // onRefresh={() => console.log('on refresh')}
+                                onRefresh={this.getData}
+                            />
                         }
-                    </View>
-                </Modal>
+                    >
+                            <NetSales />
+                            <Checks />
+                            <Guests />
+
+                            <ProgressCircleComponent
+                                progress={6.8}
+                            />
+                            <Tables
+                                onOpenTable={this.onOpenTable}
+                                openModal={this.onOpenModal}
+                            />
+                    </ScrollView>
+                    <Modal
+                        style={{
+                            justifyContent: 'flex-start',
+                            alignItems: 'stretch',
+                            height: height*0.8,
+                            maxHeight: 450,
+                            width: width*0.8,
+                            maxWidth: 400,
+                            backgroundColor: "#fff"
+                        }}
+                        backdropOpacity={0.75}
+                        ref={"modal1"}
+                        swipeToClose={false}
+                        backdropPressToClose={false}
+                        isOpen={this.state.isOpen}
+                        onClosed={() => console.log(this.state.isOpen)}
+                    >
+                        <View style={{
+                            height: 40,
+                            width: width*0.8,
+                            maxWidth: 400,
+                            justifyContent: 'flex-start',
+                            alignItems: 'flex-end'
+                        }}>
+                            <TouchableOpacity
+                                onPress={() => this.setState({isOpen: !this.state.isOpen})}
+                                style={{
+                                    width: 50,
+                                    height: 40,
+                                }}>
+                                <Text style={{
+                                    margin: 5,
+                                    fontSize: 35,
+                                    textAlign: 'center'}}>
+                                    <FontAwesome>{Icons.close}</FontAwesome>
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ flex: 1}}>
+                            {
+                                this.renderModalContent()
+                            }
+                        </View>
+                    </Modal>
+                </View>
             </View>
         )
     }
 }
 
 const mapStateToProps = ({auth}) => {
-console.log(auth);
     return {
-        token: auth.user.token
+        token: auth.user.token,
+        name: auth.name
     }
 }
 

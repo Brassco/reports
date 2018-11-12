@@ -27,7 +27,6 @@ class ProgressCircleComponent extends React.Component {
         let {labor} = this.props;
         const MAX_PERCENT_VALUE = 60;
         let value = (labor/(MAX_PERCENT_VALUE/ 100))
-console.log(value);
         return (
             <View style={{
                 alignSelf: 'stretch',

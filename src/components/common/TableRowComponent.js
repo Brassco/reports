@@ -14,15 +14,21 @@ class TableRowComponent extends React.Component{
         this.state = {
             isOpen: false
         }
+        this.openTable = this.openTable.bind(this);
+    }
+
+    openTable() {
+        let {index, openTable} = this.props;
+        openTable(index);
     }
 
     renderOpenTable() {
-        if( this.state.isOpen) {
+        if( this.props.isOpen) {
             return (
                 <View style={{
                     alignSelf: 'stretch',
                     backgroundColor: '#fff',
-                    height: this.state.isOpen ? (this.props.data.length + 1)* 55 : 0,
+                    height: this.props.isOpen ? (this.props.data.length + 1)* 55 : 0,
                 }}>
                     <TableHeaderOpen type={this.props.name}/>
                     {
@@ -34,8 +40,7 @@ class TableRowComponent extends React.Component{
     }
 
     renderRows() {
-        console.log('renderRows', this.props);
-        if( this.state.isOpen) {
+        if( this.props.isOpen) {
             return (this.props.data.map( (row, index) => {
                 return (
                     <TableRowOpen
@@ -98,10 +103,7 @@ class TableRowComponent extends React.Component{
                             justifyContent: 'flex-end',
                             alignItems: 'center',
                         }}
-                        onPress={() => this.setState({
-                                isOpen: !this.state.isOpen
-                            })
-                        }
+                        onPress={this.openTable}
                     >
                         <Text style={styles.titlesText}>
                             {amount}

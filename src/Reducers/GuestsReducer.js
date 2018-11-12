@@ -19,7 +19,6 @@ export default (state = INITIAL_STATE, action) => {
                 guests: null
             };
         case ON_GET_GUESTS_SUCCESS:
-console.log('ON_GET_GUESTS_SUCCESS', action.payload)
             return {
                 ...state,
                 error: false,

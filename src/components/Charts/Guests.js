@@ -9,7 +9,6 @@ class Guests extends React.Component {
     renderContent() {
 
         let {loading, guests} = this.props;
-console.log(loading, guests);
         if (loading) {
             return <ActivityIndicator />
         } else {
@@ -29,7 +28,6 @@ console.log(loading, guests);
 }
 
 let mapStateToProps = ({auth, guests}) => {
-console.log(guests);
     return {
         token: auth.user.token,
         guests: guests.guests,

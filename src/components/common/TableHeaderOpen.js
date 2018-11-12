@@ -33,7 +33,7 @@ const TableHeaderOpen = (props) => {
                     justifyContent: 'flex-start',
                     alignItems: 'flex-start',
                 }}>
-                    <Text>
+                    <Text style={styles.titlesText}>
                         {type == 'OpenTable' ? 'Table' : 'Name'}
                     </Text>
                 </View>
@@ -42,10 +42,10 @@ const TableHeaderOpen = (props) => {
                     justifyContent: 'flex-start',
                     alignItems: 'flex-start',
                 }}>
-                    <Text>
+                    <Text style={styles.titlesText}>
                         Amount
                     </Text>
-                    <Text>
+                    <Text style={styles.titlesText}>
                         ($)
                     </Text>
                 </View>
@@ -53,11 +53,11 @@ const TableHeaderOpen = (props) => {
                     style={{
                         flex: 2,
                         flexDirection: 'row',
-                        justifyContent: 'flex-end',
+                        justifyContent: 'center',
                         alignItems: 'center',
                     }}
                 >
-                    <Text>
+                    <Text style={styles.titlesText}>
                         Time
                     </Text>
                 </View>
@@ -71,6 +71,13 @@ const TableHeaderOpen = (props) => {
             </View>
         </View>
     )
+}
+
+let styles = {
+    titlesText: {
+        color: '#999999',
+        fontSize: 12
+    }
 }
 
 export default TableHeaderOpen;

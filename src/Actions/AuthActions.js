@@ -1,14 +1,17 @@
 import {
     AUTH_CHANGE_NAME,
     AUTH_CHANGE_PASS,
-    AUTH_ON_LOGIN, AUTH_ON_LOGIN_FAIL, AUTH_ON_LOGIN_SUCCESS
+    AUTH_ON_LOGIN,
+    AUTH_ON_LOGIN_FAIL,
+    AUTH_ON_LOGIN_SUCCESS,
+    AUTH_LOGOUT
 } from '../types'
 
 import {LOGIN_URL} from '../urls';
 import axios from 'axios';
+import {AsyncStorage} from 'react-native';
 
 export const changeName = (name) => {
-    console.log('changeName', name)
     return {
         type: AUTH_CHANGE_NAME,
         payload: name
@@ -52,7 +55,6 @@ export const onLogin = (name, password, onSuccesCallback) => {
         //         "tokenType": "bearer"
         //     },
         //     onSuccesCallback)
-console.log(LOGIN_URL, JSON.stringify(body))
         axios.post(LOGIN_URL, JSON.stringify(body), {
                 headers: {
                     'Content-Type': 'application/json',
@@ -72,17 +74,32 @@ console.log(LOGIN_URL, JSON.stringify(body))
 }
 
 const onLoginSucces = (dispatch, data, onSuccesCallback) => {
-    console.log('onLoginSucces', data)
     dispatch({
         type: AUTH_ON_LOGIN_SUCCESS,
         payload: data
     })
-    onSuccesCallback()
+    AsyncStorage.setItem('@user', JSON.stringify(data)).then(
+        onSuccesCallback()
+    )
 }
 
 const onLoginError = (dispatch, errorMsg) => {
     dispatch({
         type: AUTH_ON_LOGIN_FAIL,
         payload: errorMsg
+    })
+}
+
+export const setUserFromStore = (data) => {
+    return ({
+        type: AUTH_ON_LOGIN_SUCCESS,
+        payload: JSON.parse(data)
+    })
+}
+
+export const onLogOut = (logoutCallback) => {
+    AsyncStorage.clear();
+    return ({
+        type: AUTH_LOGOUT
     })
 }

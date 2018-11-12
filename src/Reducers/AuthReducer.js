@@ -1,12 +1,15 @@
 import {
     AUTH_CHANGE_NAME,
     AUTH_CHANGE_PASS,
-    AUTH_ON_LOGIN, AUTH_ON_LOGIN_FAIL, AUTH_ON_LOGIN_SUCCESS
+    AUTH_ON_LOGIN,
+    AUTH_ON_LOGIN_FAIL,
+    AUTH_ON_LOGIN_SUCCESS,
+    AUTH_LOGOUT
 } from '../types'
 
 const INITIAL_STATE = {
-    name: '',
-    password: '',
+    name: 'vta',
+    password: 'vta123456',
     user: null,
     error: false,
     loading: false,
@@ -28,6 +31,7 @@ export default (state = INITIAL_STATE, action) => {
                 loading: true
             }
         case AUTH_ON_LOGIN_SUCCESS:
+console.log('AUTH_ON_LOGIN_SUCCESS', action.payload);
             return {
                 ...state,
                 error: null,
@@ -40,6 +44,15 @@ export default (state = INITIAL_STATE, action) => {
                 error: action.payload,
                 loading: false,
                 user: null
+            }
+        case AUTH_LOGOUT:
+            return {
+                ...state,
+                error: null,
+                loading: false,
+                user: null,
+                name: '',
+                password: ''
             }
         default: return state;
     }

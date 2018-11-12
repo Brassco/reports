@@ -19,7 +19,6 @@ export default (state = INITIAL_STATE, action) => {
                 labor: null
             };
         case ON_GET_LABOR_SUCCESS:
-console.log('ON_GET_LABOR_SUCCESS', action.payload);
             return {
                 ...state,
                 error: false,

@@ -8,6 +8,7 @@ let {width, height} = Dimensions.get('window');
 const TableRowOpen = (props) => {
 
     let {data, openModal, type} = props;
+    console.log(data);
     return (
         <View style={{
             // width: width,
@@ -43,7 +44,7 @@ const TableRowOpen = (props) => {
                     paddingLeft: 2
                 }}>
                     <Text>
-                        {data.Amount}
+                        {data.Amount || data.AmountSum}
                     </Text>
                 </View>
                 <View

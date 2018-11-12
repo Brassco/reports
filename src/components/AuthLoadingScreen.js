@@ -6,8 +6,14 @@ import {
     View,
 } from 'react-native';
 import {connect} from 'react-redux';
+import {setUserFromStore} from '../Actions/AuthActions';
 
 class AuthLoadingScreen extends React.Component {
+
+    static navigationOptions = {
+        header: null,
+    };
+
     constructor(props) {
         super(props);
         this._bootstrapAsync();
@@ -15,15 +21,12 @@ class AuthLoadingScreen extends React.Component {
 
     // Fetch the token from storage then navigate to our appropriate place
     _bootstrapAsync = async () => {
-        // const storeData = await AsyncStorage.multiGet(['@user', '@basket']);
-        // if (storeData[0][1] !== null) {
-        //     this.props.setUserFromStore(storeData[0][1]);
-        //     if (storeData[1][1] !== null) {
-        //         this.props.setBasketFromStore(storeData[1][1]);
-        //     }
-        // }
+        const storeData = await AsyncStorage.getItem('@user');
+        if (storeData !== null) {
+            this.props.setUserFromStore(storeData);
+        }
         // AsyncStorage.clear();
-        this.props.navigation.navigate(/*storeData[0][1] !== null ? 'Main' : */'Login');
+        this.props.navigation.navigate(storeData !== null ? 'Main' : 'Login');
     };
 
     // Render any loading content that you like here
@@ -44,4 +47,4 @@ const mapStateToProps = () => {
     return {}
 }
 
-export default connect(mapStateToProps, {/*setUserFromStore, setBasketFromStore*/})(AuthLoadingScreen);
+export default connect(mapStateToProps, {setUserFromStore})(AuthLoadingScreen);

@@ -21,7 +21,6 @@ export default (state = INITIAL_STATE, action) => {
                 checks: null
             };
         case ON_GET_CHECKS_SUCCESS:
-console.log('ON_GET_CHECKS_SUCCESS', action.payload);
             return {
                 ...state,
                 error: false,

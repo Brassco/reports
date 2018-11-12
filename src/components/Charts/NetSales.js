@@ -8,7 +8,6 @@ class NetSales extends React.Component {
 
     renderContent() {
         let {loading, netSales} = this.props;
-console.log('***Render NetSales***', loading, netSales);
         if (loading) {
             return <ActivityIndicator />
         } else {

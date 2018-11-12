@@ -9,7 +9,6 @@ let {width, height} = Dimensions.get('window');
 
 const ChartsComponent = (props) => {
     let {title, sum, xAxis, yAxis} = props;
-console.log(props);
 
     const axesSvg = { fontSize: 10, fill: 'grey' };
     const verticalContentInset = { top: 10, bottom: 10 }
@@ -26,7 +25,7 @@ console.log(props);
         }}>
             <View style={{
                 // backgroundColor: '#157',
-                height: 45,
+                height: height*0.05,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',

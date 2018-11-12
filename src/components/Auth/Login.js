@@ -31,8 +31,6 @@ class Login extends React.Component {
 
     onLogin = () => {
         let {name, password} = this.props;
-
-        console.log('onLogin', name, password);
         this.props.onLogin(name, password, this.goToMain);
     }
 

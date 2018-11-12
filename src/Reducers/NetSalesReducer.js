@@ -19,7 +19,6 @@ export default (state = INITIAL_STATE, action) => {
                 data: null
             };
         case ON_GET_NET_SALES_SUCCESS:
-            console.log('ON_GET_NET_SALES_SUCCESS', action.payload)
             return {
                 ...state,
                 error: false,

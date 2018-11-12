@@ -33,7 +33,6 @@ export const getData = (token) => {
             }
         )
             .then(netSales => {
-                console.log('netSales', netSales)
                 /*get checks*/
                 axios.get(CHECKS_URL, {
                         headers: {
@@ -42,7 +41,6 @@ export const getData = (token) => {
                     }
                 )
                     .then(checks => {
-                        console.log(checks)
                         /*get guests*/
                         axios.get(GUESTS_URL, {
                                 headers: {
@@ -51,7 +49,6 @@ export const getData = (token) => {
                             }
                         )
                             .then(guests => {
-                                console.log(guests)
                                 /*get labor*/
                                 axios.get(LABOR_URL, {
                                         headers: {
@@ -60,7 +57,6 @@ export const getData = (token) => {
                                     }
                                 )
                                     .then(labor => {
-                                        console.log('Labor response', labor)
                                         /*get tables*/
                                         axios.get(TABLES_URL, {
                                                 headers: {
@@ -69,7 +65,6 @@ export const getData = (token) => {
                                             }
                                         )
                                             .then(tables => {
-                                                console.log(tables)
                                                 dispatch({
                                                     type: ON_GET_NET_SALES_SUCCESS,
                                                     payload: netSales.data

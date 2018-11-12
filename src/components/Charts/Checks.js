@@ -9,7 +9,6 @@ class Checks extends React.Component {
     renderContent() {
 
         let {loading, checks} = this.props;
-console.log(loading, checks);
         if (loading) {
             return <ActivityIndicator />
         } else {
@@ -29,7 +28,6 @@ console.log(loading, checks);
 }
 
 let mapStateToProps = ({auth, checks}) => {
-console.log(checks);
     return {
         token: auth.user.token,
         checks: checks.checks,

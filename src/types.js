@@ -4,6 +4,7 @@ export const AUTH_CHANGE_PASS = 'auth_change_pass';
 export const AUTH_ON_LOGIN = 'auth_on_login';
 export const AUTH_ON_LOGIN_SUCCESS = 'auth_on_login_success';
 export const AUTH_ON_LOGIN_FAIL = 'auth_on_login_fail';
+export const AUTH_LOGOUT = 'auth_logout';
 
 /*INFO*/
 export const ON_GET_NET_SALES = 'on_get_net_sales';
