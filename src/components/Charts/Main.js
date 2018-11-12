@@ -77,7 +77,6 @@ class Main extends React.Component {
             }}>
                 <ScrollView
                     style={{
-                        padding: 10,
                         width: '100%',
                     }}
                     bounces={true}

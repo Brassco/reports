@@ -19,14 +19,14 @@ console.log(props);
             // width: width,
             alignSelf: 'stretch',
             backgroundColor: '#fff',
-            height: height*0.3,
+            height: height*0.25,
             // maxHeight: 300,
             borderRadius: 8,
-            margin: 10
+            margin: 5
         }}>
             <View style={{
                 // backgroundColor: '#157',
-                height: 50,
+                height: 45,
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',

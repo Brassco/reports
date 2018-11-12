@@ -21,6 +21,7 @@ class ProgressCircleComponent extends React.Component {
                 padding: 10,
                 backgroundColor: '#fff',
                 borderRadius: 8,
+                marginTop: 5,
                 margin: 10
             }}>
                 <View>
