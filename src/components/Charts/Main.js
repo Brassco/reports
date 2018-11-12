@@ -110,6 +110,7 @@ class Main extends React.Component {
                         maxWidth: 400,
                         backgroundColor: "#fff"
                     }}
+                    backdropOpacity={0.75}
                     ref={"modal1"}
                     swipeToClose={false}
                     backdropPressToClose={false}

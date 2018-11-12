@@ -26,7 +26,7 @@ const TableHeaderComponent = (props) => {
                 justifyContent: 'center',
                 alignItems: 'flex-start',
             }}>
-                <Text>
+                <Text style={styles.titlesText}>
                     Name
                 </Text>
             </View>
@@ -35,7 +35,7 @@ const TableHeaderComponent = (props) => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                <Text>
+                <Text style={styles.titlesText}>
                     Qty
                 </Text>
             </View>
@@ -44,12 +44,19 @@ const TableHeaderComponent = (props) => {
                 justifyContent: 'center',
                 alignItems: 'flex-end',
             }}>
-                <Text>
+                <Text style={styles.titlesText}>
                     Amount($)
                 </Text>
             </View>
         </View>
     )
+}
+
+let styles = {
+    titlesText: {
+        color: '#999999',
+        fontSize: 13
+    }
 }
 
 export default TableHeaderComponent;

@@ -34,10 +34,18 @@ console.log(props);
                 paddingLeft: 10,
                 paddingRight: 10,
             }}>
-                <Text>
+                <Text style={{
+                    fontSize: 18,
+                    fontFamily: 'Open Sans',
+                    color: '#333'
+                }}>
                     {title}
                 </Text>
-                <Text>
+                <Text style={{
+                    fontSize: 18,
+                    fontFamily: 'Open Sans',
+                    color: '#333'
+                }}>
                     {sum}
                 </Text>
             </View>

@@ -40,7 +40,11 @@ console.log(value);
                 margin: 10
             }}>
                 <View>
-                    <Text>
+                    <Text style={{
+                        fontSize: 18,
+                        fontFamily: 'Open Sans',
+                        color: '#333'
+                    }}>
                         Labor/Sales
                     </Text>
                 </View>

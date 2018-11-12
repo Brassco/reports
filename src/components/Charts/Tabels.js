@@ -79,7 +79,7 @@ class Tables extends React.Component {
 }
 
 const mapStateToProps = ({auth, tables}) => {
-console.log(tables)
+
     return {
         token: auth.user.token,
         tables: tables.tables,

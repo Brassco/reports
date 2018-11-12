@@ -24,7 +24,7 @@ class TableRowComponent extends React.Component{
                     backgroundColor: '#fff',
                     height: this.state.isOpen ? (this.props.data.length + 1)* 55 : 0,
                 }}>
-                    <TableHeaderOpen />
+                    <TableHeaderOpen type={this.props.name}/>
                     {
                         this.renderRows()
                     }
@@ -78,7 +78,7 @@ class TableRowComponent extends React.Component{
                         justifyContent: 'center',
                         alignItems: 'flex-start',
                     }}>
-                        <Text>
+                        <Text style={styles.titlesText}>
                             {name}
                         </Text>
                     </View>
@@ -87,7 +87,7 @@ class TableRowComponent extends React.Component{
                         justifyContent: 'center',
                         alignItems: 'center',
                     }}>
-                        <Text>
+                        <Text style={styles.titlesText}>
                             {qty}
                         </Text>
                     </View>
@@ -103,7 +103,7 @@ class TableRowComponent extends React.Component{
                             })
                         }
                     >
-                        <Text>
+                        <Text style={styles.titlesText}>
                             {amount}
                         </Text>
                         <Text style={{margin: 10, fontSize: 13, textAlign: 'left'}}>
@@ -118,6 +118,13 @@ class TableRowComponent extends React.Component{
 
             </View>
         )
+    }
+}
+
+let styles = {
+    titlesText: {
+        color: '#333',
+        fontSize: 15
     }
 }
 

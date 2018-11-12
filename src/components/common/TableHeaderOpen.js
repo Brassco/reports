@@ -34,7 +34,7 @@ const TableHeaderOpen = (props) => {
                     alignItems: 'flex-start',
                 }}>
                     <Text>
-                        Table
+                        {type == 'OpenTable' ? 'Table' : 'Name'}
                     </Text>
                 </View>
                 <View style={{
@@ -49,19 +49,18 @@ const TableHeaderOpen = (props) => {
                         ($)
                     </Text>
                 </View>
-                <TouchableOpacity
+                <View
                     style={{
                         flex: 2,
                         flexDirection: 'row',
                         justifyContent: 'flex-end',
                         alignItems: 'center',
                     }}
-                    onPress={() => openModal(data, type)}
                 >
                     <Text>
                         Time
                     </Text>
-                </TouchableOpacity>
+                </View>
                 <View style={{
                     flex: 1,
                     justifyContent: 'center',
