@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Platform,
     StyleSheet,
-    Text,
-    View,
-    AsyncStorage,
-    ActivityIndicator,
     BackHandler
 } from 'react-native';
 import reducers from './src/Reducers';

@@ -8,8 +8,8 @@ import {
 } from '../types'
 
 const INITIAL_STATE = {
-    name: 'vta',
-    password: 'vta123456',
+    name: '',
+    password: '',
     user: null,
     error: false,
     loading: false,
