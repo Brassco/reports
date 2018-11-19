@@ -43,7 +43,7 @@ const ChartsComponent = (props) => {
                 <Text style={{
                     fontSize: 18,
                     fontFamily: 'Open Sans',
-                    color: '#333'
+                    color: '#999'
                 }}>
                     {sum}
                 </Text>

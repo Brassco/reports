@@ -108,7 +108,7 @@ class TableRowComponent extends React.Component{
                         <Text style={styles.titlesText}>
                             {amount}
                         </Text>
-                        <Text style={{margin: 10, fontSize: 13, textAlign: 'left'}}>
+                        <Text style={{color: '#368ee0', margin: 10, fontSize: 13, textAlign: 'left'}}>
                             <FontAwesome>{Icons.caretDown}</FontAwesome>
                         </Text>
                     </TouchableOpacity>

@@ -12,7 +12,7 @@ class NetSales extends React.Component {
             return <ActivityIndicator />
         } else {
             return <ChartsComponent
-                title={'Net sales'}
+                title={'Net Sales'}
                 sum={netSales.title}
                 xAxis={netSales.xAxis}
                 yAxis={netSales.yAxis}

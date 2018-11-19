@@ -8,7 +8,7 @@ const ModalTicket = (props) => {
     return (
         <View style={{
                 flex: 1,
-                padding: 5,
+                padding: 15,
                 justifyContent: 'space-between'
         }}>
             <ModalTiketRow

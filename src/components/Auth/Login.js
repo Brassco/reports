@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TextInput, Dimensions,
     SafeAreaView, ScrollView, TouchableOpacity,
-    ActivityIndicator, Image
+    ActivityIndicator, Image, KeyboardAvoidingView
 } from 'react-native';
 import {connect} from 'react-redux';
 import {changeName, changePassword, onLogin} from '../../Actions/AuthActions';
@@ -19,6 +19,22 @@ class Login extends React.Component {
         this.onChangeName = this.onChangeName.bind(this)
         this.onChangePassword = this.onChangePassword.bind(this)
         this.onLogin = this.onLogin.bind(this)
+        this.onFocus = this.onFocus.bind(this)
+    }
+
+    onFocus = () => {
+        let scrollHeight = height/2;
+        console.log('onFocus ', scrollHeight , this.scrollView);
+        // this.scrollView.scrollToEnd({y: scrollHeight })
+        this.refs.myScrollView.scrollToEnd();
+        // const scrollResponder = this.refs.myScrollView.getScrollResponder();
+        // const inputHandle = React.findNodeHandle(this.refs.myInput)
+        //
+        // scrollResponder.scrollResponderScrollNativeHandleToKeyboard(
+        //     inputHandle, // The TextInput node handle
+        //     0, // The scroll view's bottom "contentInset" (default 0)
+        //     true // Prevent negative scrolling
+        // );
     }
 
     onChangeName = (name) => {
@@ -79,9 +95,11 @@ class Login extends React.Component {
             textInputStyle, inputWrapper
         } = styles;
         return (
-            <SafeAreaView>
-                <ScrollView>
-                    <View style={container}>
+
+                    <KeyboardAvoidingView
+                        behavior="padding"
+                        style={container}
+                    >
                         <View style={[
                             container,
                             logoContainer
@@ -94,8 +112,8 @@ class Login extends React.Component {
                             }}>
                                 <Image
                                     style={{
-                                        width: width*0.3,
-                                        height: width*0.3,
+                                        width: width*0.2,
+                                        height: width*0.2,
                                     }}
                                     source={require('../../images/logo.png')}
                                 />
@@ -170,9 +188,7 @@ class Login extends React.Component {
 
                             </View>
                         </View>
-                    </View>
-                </ScrollView>
-            </SafeAreaView>
+                    </KeyboardAvoidingView>
         )
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Dimensions} from 'react-native';
+import {View, Text, Dimensions, ActivityIndicator} from 'react-native';
 import { ProgressCircle } from 'react-native-svg-charts'
 import {connect} from 'react-redux';
 import {getLabor} from '../../Actions/InfoActions';
@@ -27,6 +27,9 @@ class ProgressCircleComponent extends React.Component {
         let {labor} = this.props;
         const MAX_PERCENT_VALUE = 60;
         let value = (labor/(MAX_PERCENT_VALUE/ 100))
+        if (this.props.loading) {
+            return <ActivityIndicator />
+        }
         return (
             <View style={{
                 alignSelf: 'stretch',

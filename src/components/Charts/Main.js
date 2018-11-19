@@ -12,7 +12,7 @@ import NetSales from './NetSales';
 import Checks from './Checks';
 import Guests from './Guests';
 import Tables from "./Tabels";
-import {getData} from '../../Actions/InfoActions';
+import {getData, getNetSales, getLabor, getTables, getChecks, getGuests} from '../../Actions/InfoActions';
 
 let {width, height} = Dimensions.get('window');
 
@@ -41,7 +41,11 @@ class Main extends React.Component {
 
     getData() {
         let {token} = this.props;
-        this.props.getData(token)
+        this.props.getNetSales(token);
+        this.props.getLabor(token);
+        this.props.getTables(token);
+        this.props.getChecks(token);
+        this.props.getGuests(token);
     }
 
     onOpenModal(data, type) {
@@ -128,7 +132,8 @@ class Main extends React.Component {
                             maxHeight: 450,
                             width: width*0.8,
                             maxWidth: 400,
-                            backgroundColor: "#fff"
+                            backgroundColor: "#fff",
+                            // padding: 15
                         }}
                         backdropOpacity={0.75}
                         ref={"modal1"}
@@ -139,7 +144,7 @@ class Main extends React.Component {
                     >
                         <View style={{
                             height: 40,
-                            width: width*0.8,
+                            width: width*0.75,
                             maxWidth: 400,
                             justifyContent: 'flex-start',
                             alignItems: 'flex-end'
@@ -151,7 +156,7 @@ class Main extends React.Component {
                                     height: 40,
                                 }}>
                                 <Text style={{
-                                    margin: 5,
+                                    // margin: 5,
                                     fontSize: 35,
                                     textAlign: 'center'}}>
                                     <FontAwesome>{Icons.close}</FontAwesome>
@@ -177,4 +182,4 @@ const mapStateToProps = ({auth}) => {
     }
 }
 
-export default connect(mapStateToProps, {getData})(Main);
+export default connect(mapStateToProps, {getNetSales, getLabor, getTables, getChecks, getGuests})(Main);
